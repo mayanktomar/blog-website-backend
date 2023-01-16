@@ -7,7 +7,7 @@ export async function createBlog(blogData) {
 }
 
 export async function getBlogsByInterest(interest) {
-  return await Blogs.find({tag:interest}).toArray();
+  return await Blogs.find({tag:interest});
 }
 
 export async function getBlogsByUser(userId) {
