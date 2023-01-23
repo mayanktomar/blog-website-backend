@@ -10,6 +10,11 @@ export async function getBlogsByInterest(interest) {
   return await Blogs.find({tag:interest});
 }
 
+export async function getBlogsByInterests(interests) {
+  //interests: ["Cricket","Politics"]
+  return await Blogs.find({tag:{$in: interests}});
+}
+
 export async function getBlogsByUser(userId) {
   return await Blogs.find({createdBy:userId}).toArray();
 }

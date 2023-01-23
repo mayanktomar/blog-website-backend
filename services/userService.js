@@ -45,7 +45,8 @@ export async function loginUser(userData) {
   const dataToSend = {
     emailId: emailId,
     userId: userDocument._id,
-    token: token
+    token: token,
+    interests: userDocument.interests
   }
 
   return {status:'success',message:dataToSend}
