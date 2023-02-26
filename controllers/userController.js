@@ -14,7 +14,11 @@ export async function createUserHandler(req,res) {
 export async function loginUserHandler(req,res) {
   try {
     const user = await loginUser(req.body);
-    return res.status(200).send(user);
+    if (user.status == 'error') {
+      return res.status(401).send(user.message);
+    } else {
+      return res.status(200).send(user.message);
+    }
   } catch (err) {
     console.log("error:",err);
     return res.status(500).send("error while authenticating user. Error message: ");
